@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ssm.mapper.BookMapper">
+    <insert id="save">
+        insert into book(name,type,description) values(#{name},#{type},#{description});
+    </insert>
+
+    <update id="update">
+        update book set name=#{name},type=#{type},description=#{description} where id=#{id};
+    </update>
+
+    <delete id="delete">
+        delete from book where id=#{id};
+    </delete>
+
+    <select id="findById" resultType="ssm.domain.Book">
+        select * from book where id=#{id};
+    </select>
+    <select id="findAll" resultType="ssm.domain.Book">
+        select * from book;
+    </select>
+
+</mapper>
